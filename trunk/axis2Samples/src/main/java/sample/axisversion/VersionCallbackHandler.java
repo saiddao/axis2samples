@@ -1,4 +1,3 @@
-
 /**
  * VersionCallbackHandler.java
  *
@@ -6,61 +5,58 @@
  * by the Apache Axis2 version: 1.4.1  Built on : Aug 13, 2008 (05:03:35 LKT)
  */
 
-    package sample.axisversion;
+package sample.axisversion;
 
-    /**
-     *  VersionCallbackHandler Callback class, Users can extend this class and implement
-     *  their own receiveResult and receiveError methods.
-     */
-    public abstract class VersionCallbackHandler{
+/**
+ * VersionCallbackHandler Callback class, Users can extend this class and
+ * implement their own receiveResult and receiveError methods.
+ */
+public abstract class VersionCallbackHandler {
 
+	protected Object clientData;
 
+	/**
+	 * User can pass in any object that needs to be accessed once the
+	 * NonBlocking Web service call is finished and appropriate method of this
+	 * CallBack is called.
+	 * 
+	 * @param clientData
+	 *            Object mechanism by which the user can pass in user data that
+	 *            will be avilable at the time this callback is called.
+	 */
+	public VersionCallbackHandler(Object clientData) {
+		this.clientData = clientData;
+	}
 
-    protected Object clientData;
+	/**
+	 * Please use this constructor if you don't want to set any clientData
+	 */
+	public VersionCallbackHandler() {
+		this.clientData = null;
+	}
 
-    /**
-    * User can pass in any object that needs to be accessed once the NonBlocking
-    * Web service call is finished and appropriate method of this CallBack is called.
-    * @param clientData Object mechanism by which the user can pass in user data
-    * that will be avilable at the time this callback is called.
-    */
-    public VersionCallbackHandler(Object clientData){
-        this.clientData = clientData;
-    }
+	/**
+	 * Get the client data
+	 */
 
-    /**
-    * Please use this constructor if you don't want to set any clientData
-    */
-    public VersionCallbackHandler(){
-        this.clientData = null;
-    }
+	public Object getClientData() {
+		return clientData;
+	}
 
-    /**
-     * Get the client data
-     */
+	/**
+	 * auto generated Axis2 call back method for getVersion method override this
+	 * method for handling normal response from getVersion operation
+	 */
+	public void receiveResultgetVersion(
+			GetVersionResponse result) {
+		System.out.println("from callback handler:"+result.get_return());
+	}
 
-     public Object getClientData() {
-        return clientData;
-     }
+	/**
+	 * auto generated Axis2 Error handler override this method for handling
+	 * error response from getVersion operation
+	 */
+	public void receiveErrorgetVersion(java.lang.Exception e) {
+	}
 
-        
-           /**
-            * auto generated Axis2 call back method for getVersion method
-            * override this method for handling normal response from getVersion operation
-            */
-           public void receiveResultgetVersion(
-                    sample.axisversion.VersionStub.GetVersionResponse result
-                        ) {
-           }
-
-          /**
-           * auto generated Axis2 Error handler
-           * override this method for handling error response from getVersion operation
-           */
-            public void receiveErrorgetVersion(java.lang.Exception e) {
-            }
-                
-
-
-    }
-    
+}

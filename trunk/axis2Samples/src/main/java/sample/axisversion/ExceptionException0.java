@@ -10,7 +10,7 @@ package sample.axisversion;
 
 public class ExceptionException0 extends java.lang.Exception{
     
-    private sample.axisversion.VersionStub.ExceptionE faultMessage;
+    private ExceptionE faultMessage;
     
     public ExceptionException0() {
         super("ExceptionException0");
@@ -24,11 +24,11 @@ public class ExceptionException0 extends java.lang.Exception{
       super(s, ex);
     }
     
-    public void setFaultMessage(sample.axisversion.VersionStub.ExceptionE msg){
+    public void setFaultMessage(ExceptionE msg){
        faultMessage = msg;
     }
     
-    public sample.axisversion.VersionStub.ExceptionE getFaultMessage(){
+    public ExceptionE getFaultMessage(){
        return faultMessage;
     }
 }
